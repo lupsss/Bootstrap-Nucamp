@@ -1,22 +1,27 @@
 {
-  "name": "git-test",
+  "name": "nucampsite",
   "version": "1.0.0",
-  "description": "Git and NPM",
+  "description": "This is a website for the fictional campsites review site Nucamp",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run lite",
+    "lite": "lite-server",
     "scss": "node-sass -o css/ css/",
-    "lite": "lite-server"
+    "start": "npm run watch:all",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:scss":"onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
   },
   "repository": {
     "type": "git"
   },
-  "author": "",
+
+  "author": "Lupe Alvarado",
   "license": "ISC",
   "devDependencies": {
     "lite-server": "^2.6.1",
-    "node-sass": "^6.0.1"
+    "node-sass": "^6.0.1",
+    "onchange": "^7.0.0",
+    "parallelshell": "3.0.1"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
@@ -25,4 +30,5 @@
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
   }
+
 }
